@@ -23,7 +23,7 @@ module GoGetCli
       basename = File.basename(repository)
       version = DateTime.now.strftime("%Y-%m-%d")
       gopath = "$(brew --prefix)/Cellar/go-get-#{basename}/#{version}"
-      script = <<-EOS.undent
+      script = <<-EOS
         set -euo pipefail
         go get #{ARGV.join(" ")}
         rm -rf "#{gopath}/pkg" "#{gopath}/src"
